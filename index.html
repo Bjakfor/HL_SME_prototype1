@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlands Lodge - Luxury Mountain Retreat</title>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6.5.1 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- WhatsApp FAB Styles -->
+    <style>
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-fab:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-fab i {
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-fab:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* Custom styles for View More and Share Experience buttons */
+        .btn-outline-primary {
+            border: none;
+            background: transparent;
+            color: #800080;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: rgba(128, 0, 128, 0.1);
+            color: #800080;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary:focus {
+            box-shadow: none;
+        }
+
+        .btn-outline-primary:active {
+            background: rgba(128, 0, 128, 0.2) !important;
+            color: #800080 !important;
+        }
+
+        .text-pink {
+            color: #ffb6c1;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1a1a1a;">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-mountain"></i> Highlands Lodge
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+                <li class="nav-item"><a class="nav-link" href="#dining">Dining</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Services">Services</a></li>
+                <li class="nav-item">
+                    <a href="#book" class="btn nav-book-btn">Book Now</a>
+                </li>
+                <button id="themeToggle" class="btn btn-outline-light ms-3">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section with Integrated Booking -->
+<header class="hero-section">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-8 text-white text-start">
+                <div class="hero-content">
+                    <p class="text-primary text-uppercase mb-2 small">Escape to the Mountains</p>
+                    <h1 class="display-4 fw-bold mb-3">Discover Highlands Lodge</h1>
+                    <p class="lead mb-4">Experience exceptional hospitality in the heart of Mapholaneng, Mokhotlong</p>
+                    <div class="hero-features row g-4">
+                        <div class="col-sm-3">
+                            <div class="feature-item">
+                                <i class="fas fa-concierge-bell fa-2x mb-3"></i>
+                                <h5 class="h6">Room Service</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="feature-item">
+                                <i class="fas fa-parking fa-2x mb-3"></i>
+                                <h5 class="h6">Free Parking</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="feature-item">
+                                <i class="fas fa-coffee fa-2x mb-3"></i>
+                                <h5 class="h6">Restaurant</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="feature-item">
+                                <i class="fas fa-wifi fa-2x mb-3"></i>
+                                <h5 class="h6">Free WiFi</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location-reference mt-5">
+                        <p class="text-white-50 small mb-0">
+                            <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                            <span>5min from Shopping Centre • 30min from Afriski • 15min from Diamond Mines • 1h15min from Sani Pass</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Room Types Section -->
+<section id="rooms" class="rooms-section py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase">Our Rooms</h6>
+            <h1 class="display-4 text-white">Comfortable Accommodations</h1>
+            <p class="text-muted">Experience comfort with modern amenities in the heart of the mountains</p>
+        </div>
+        <div class="row g-4">
+            <!-- Double Room with Balcony -->
+            <div class="col-md-6 col-lg-4">
+                <div class="room-card" data-bs-toggle="modal" data-bs-target="#roomModal1">
+                    <button class="like-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="/images/double-room-balcony.jpg" class="card-img-top" alt="Double Room with Balcony">
+                    <div class="gallery-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8 (96 reviews)</span>
+                        </div>
+                        <h4 class="card-title">Double Room with Balcony</h4>
+                        <p class="text-muted">Enjoy mountain views from your private balcony</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 1 Queen or 2 Twin Beds</span>
+                            <span><i class="fas fa-mountain"></i> Mountain View</span>
+                            <span><i class="fas fa-snowflake"></i> Air Conditioning</span>
+                            <span><i class="fas fa-tv"></i> Flat-screen TV</span>
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        </div>
+                        <p class="price">M1050 <span>/ night</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deluxe Twin Room -->
+            <div class="col-md-6 col-lg-4">
+                <div class="room-card" data-bs-toggle="modal" data-bs-target="#roomModal2">
+                    <button class="like-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="/images/deluxe-twin-room.jpg" class="card-img-top" alt="Deluxe Twin Room">
+                    <div class="gallery-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.7 (85 reviews)</span>
+                        </div>
+                        <h4 class="card-title">Deluxe Twin Room</h4>
+                        <p class="text-muted">Spacious room with two twin beds</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 Twin Beds</span>
+                            <span><i class="fas fa-snowflake"></i> Air Conditioning</span>
+                            <span><i class="fas fa-tv"></i> Flat-screen TV</span>
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-coffee"></i> Tea/Coffee Maker</span>
+                        </div>
+                        <p class="price">M1050 <span>/ night</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget Double Room -->
+            <div class="col-md-6 col-lg-4">
+                <div class="room-card" data-bs-toggle="modal" data-bs-target="#roomModal3">
+                    <button class="like-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="/images/budget-double-room.jpg" class="card-img-top" alt="Budget Double Room">
+                    <div class="gallery-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.6 (72 reviews)</span>
+                        </div>
+                        <h4 class="card-title">Budget Double Room</h4>
+                        <p class="text-muted">Perfect for families or groups</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 1 King + 1 Bunk or 2 Twin Beds</span>
+                            <span><i class="fas fa-snowflake"></i> Air Conditioning</span>
+                            <span><i class="fas fa-tv"></i> Flat-screen TV</span>
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-refrigerator"></i> Refrigerator</span>
+                        </div>
+                        <p class="price">M1365 <span>/ night</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Room Detail Modals -->
+<!-- Double Room Modal -->
+<div class="modal fade" id="roomModal1" tabindex="-1" aria-labelledby="roomModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="roomModal1Label">Double Room with Balcony</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/images/double-room-balcony.jpg" class="img-fluid rounded mb-4" alt="Double Room">
+                        <div class="room-features">
+                            <h6 class="text-primary">Room Features</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-star me-2"></i>1 Queen or 2 Twin Beds</li>
+                                <li><i class="fas fa-mountain me-2"></i>Mountain View</li>
+                                <li><i class="fas fa-snowflake me-2"></i>Air Conditioning</li>
+                                <li><i class="fas fa-tv me-2"></i>Flat-screen TV</li>
+                                <li><i class="fas fa-wifi me-2"></i>Free WiFi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="bathroom-section mb-4">
+                            <img src="/images/bathroom1.jpg" class="img-fluid rounded mb-3" alt="Bathroom">
+                            <h6 class="text-primary">Bathroom</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-bath me-2"></i>Private bathroom</li>
+                                <li><i class="fas fa-toilet me-2"></i>Toilet</li>
+                                <li><i class="fas fa-shower me-2"></i>Shower</li>
+                                <li><i class="fas fa-towel me-2"></i>Towels</li>
+                                <li><i class="fas fa-soap me-2"></i>Free toiletries</li>
+                            </ul>
+                        </div>
+                        <div class="closet-section">
+                            <img src="/images/closet1.jpg" class="img-fluid rounded mb-3" alt="Closet">
+                            <h6 class="text-primary">Closet</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-tshirt me-2"></i>Wardrobe</li>
+                                <li><i class="fas fa-suitcase me-2"></i>Luggage storage</li>
+                                <li><i class="fas fa-umbrella me-2"></i>Clothes rack</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="#book" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Deluxe Twin Room Modal -->
+<div class="modal fade" id="roomModal2" tabindex="-1" aria-labelledby="roomModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="roomModal2Label">Deluxe Twin Room</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/images/deluxe-twin-room.jpg" class="img-fluid rounded mb-3" alt="Deluxe Twin Room">
+                        <div class="room-features">
+                            <h6 class="text-primary">Room Features</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-bed me-2"></i>2 Twin Beds</li>
+                                <li><i class="fas fa-snowflake me-2"></i>Air Conditioning</li>
+                                <li><i class="fas fa-tv me-2"></i>Flat-screen TV</li>
+                                <li><i class="fas fa-wifi me-2"></i>Free WiFi</li>
+                                <li><i class="fas fa-coffee me-2"></i>Tea/Coffee Maker</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-primary">Bathroom</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-bath me-2"></i>Private bathroom</li>
+                            <li><i class="fas fa-toilet me-2"></i>Toilet</li>
+                            <li><i class="fas fa-shower me-2"></i>Shower</li>
+                            <li><i class="fas fa-towel me-2"></i>Towels</li>
+                            <li><i class="fas fa-soap me-2"></i>Free toiletries</li>
+                        </ul>
+                        <h6 class="text-primary mt-4">Closet</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-tshirt me-2"></i>Wardrobe</li>
+                            <li><i class="fas fa-suitcase me-2"></i>Luggage storage</li>
+                            <li><i class="fas fa-umbrella me-2"></i>Clothes rack</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="#book" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Budget Double Room Modal -->
+<div class="modal fade" id="roomModal3" tabindex="-1" aria-labelledby="roomModal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="roomModal3Label">Budget Double Room</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/images/budget-double-room.jpg" class="img-fluid rounded mb-3" alt="Budget Double Room">
+                        <div class="room-features">
+                            <h6 class="text-primary">Room Features</h6>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fas fa-bed me-2"></i>1 King + 1 Bunk or 2 Twin Beds</li>
+                                <li><i class="fas fa-snowflake me-2"></i>Air Conditioning</li>
+                                <li><i class="fas fa-tv me-2"></i>Flat-screen TV</li>
+                                <li><i class="fas fa-wifi me-2"></i>Free WiFi</li>
+                                <li><i class="fas fa-refrigerator me-2"></i>Refrigerator</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-primary">Bathroom</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-bath me-2"></i>Private bathroom</li>
+                            <li><i class="fas fa-toilet me-2"></i>Toilet</li>
+                            <li><i class="fas fa-shower me-2"></i>Shower</li>
+                            <li><i class="fas fa-towel me-2"></i>Towels</li>
+                            <li><i class="fas fa-soap me-2"></i>Free toiletries</li>
+                        </ul>
+                        <h6 class="text-primary mt-4">Closet</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li><i class="fas fa-tshirt me-2"></i>Wardrobe</li>
+                            <li><i class="fas fa-suitcase me-2"></i>Luggage storage</li>
+                            <li><i class="fas fa-umbrella me-2"></i>Clothes rack</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="#book" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Room Amenities Section -->
+<section class="amenities-section py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase">Amenities</h6>
+            <h1 class="display-4 text-white">Room Features</h1>
+            <p class="text-muted">All our rooms include the following amenities</p>
+                            </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="amenity-category">
+                    <h4 class="text-white mb-4">Bathroom</h4>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-star me-2"></i>Private bathroom</li>
+                        <li><i class="fas fa-star me-2"></i>Toilet</li>
+                        <li><i class="fas fa-star me-2"></i>Bathtub</li>
+                        <li><i class="fas fa-star me-2"></i>Shower</li>
+                    </ul>
+                        </div>
+                    </div>
+            <div class="col-md-4">
+                <div class="amenity-category">
+                    <h4 class="text-white mb-4">Bedroom</h4>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-star me-2"></i>Linens</li>
+                        <li><i class="fas fa-star me-2"></i>Wardrobe or closet</li>
+                        <li><i class="fas fa-star me-2"></i>Mountain view</li>
+                        <li><i class="fas fa-star me-2"></i>Balcony</li>
+                    </ul>
+                </div>
+                        </div>
+            <div class="col-md-4">
+                <div class="amenity-category">
+                    <h4 class="text-white mb-4">Kitchen & Media</h4>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-star me-2"></i>Electric kettle</li>
+                        <li><i class="fas fa-star me-2"></i>Refrigerator</li>
+                        <li><i class="fas fa-star me-2"></i>Flat-screen TV</li>
+                        <li><i class="fas fa-star me-2"></i>Free WiFi</li>
+                    </ul>
+                </div>
+                            </div>
+                        </div>
+                    </div>
+</section>
+
+<!-- Services Section -->
+<section id="Services" class="services-section py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase">Services</h6>
+            <h1 class="display-4 text-white">Guest Services</h1>
+            <p class="text-muted">We offer a range of services to make your stay comfortable</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-category rounded-3 p-4 h-100" style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);">
+                    <div class="category-header d-flex align-items-center mb-4">
+                        <i class="fas fa-utensils fa-2x text-primary me-3"></i>
+                        <h4 class="text-white mb-0">Food & Drink</h4>
+                    </div>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Coffee house on site</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Fruit</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Wine/Champagne <span class="text-pink">(Additional charge)</span></span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Kid-friendly buffet</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Kids' meals</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Special diet meals (on request)</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Breakfast in the room</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-category rounded-3 p-4 h-100" style="background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);">
+                    <div class="category-header d-flex align-items-center mb-4">
+                        <i class="fas fa-concierge-bell fa-2x text-primary me-3"></i>
+                        <h4 class="text-white mb-0">Guest Services</h4>
+                    </div>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Daily housekeeping</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Private check-in/out</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Packed lunches</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Ironing service <span class="text-pink">(Additional charge)</span></span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Laundry <span class="text-pink">(Additional charge)</span></span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Room service</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Invoice provided</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-category rounded-3 p-4 h-100" style="background: linear-gradient(135deg, #3182ce 0%, #4299e1 100%);">
+                    <div class="category-header d-flex align-items-center mb-4">
+                        <i class="fas fa-shield-alt fa-2x text-primary me-3"></i>
+                        <h4 class="text-white mb-0">Transport & Safety</h4>
+                    </div>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Shuttle service <span class="text-pink">(Additional charge)</span></span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Airport shuttle <span class="text-pink">(Additional charge)</span></span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Free private parking</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Fire extinguishers</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>24-hour security</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Designated smoking area</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-star-circle text-primary me-2"></i>
+                            <span>Smoke-free property</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dining Experience -->
+<section id="dining" class="dining-section py-5 position-relative">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase">Restaurant</h6>
+            <h1 class="display-4 text-white">Dining & Drinks</h1>
+            <p class="text-muted">Enjoy meals with breathtaking mountain views</p>
+        </div>
+        
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-white">
+                <div class="restaurant-details mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="dining-hours">
+                            <h5 class="text-white">Open for:</h5>
+                            <ul class="list-unstyled text-white-50 d-flex gap-3">
+                                <li><i class="fas fa-sun me-2"></i>Breakfast</li>
+                                <li><i class="fas fa-utensils me-2"></i>Lunch</li>
+                                <li><i class="fas fa-moon me-2"></i>Dinner</li>
+                            </ul>
+                        </div>
+                        <div class="ambience">
+                            <h5 class="text-white">Ambience:</h5>
+                            <p class="text-white-50 mb-0"><i class="fas fa-users me-2"></i>Family-friendly</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted">Our restaurant offers a welcoming ambiance with a variety of menus catering to special diets. Enjoy lunch and dinner while taking in the stunning mountain views.</p>
+                <div class="row g-3 mt-4">
+                    <div class="col-6">
+                        <div class="p-3 border border-secondary rounded">
+                            <i class="fas fa-utensils fa-2x mb-3"></i>
+                            <h5>Lunch & Dinner</h5>
+                            <p class="text-muted mb-0">Family-friendly dining</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 border border-secondary rounded">
+                            <i class="fas fa-mountain fa-2x mb-3"></i>
+                            <h5>Mountain Views</h5>
+                            <p class="text-muted mb-0">Stunning scenery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Standard Section Title Pattern -->
+<div class="section-title text-center mb-5">
+    <h6 class="text-primary text-uppercase">Testimonials</h6>
+    <h1 class="display-4 text-white">Our Guests Love Us</h1>
+    <p class="text-muted">What our happy customers say about us</p>
+</div>
+
+<!-- Testimonials -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card rounded-3 border-0" style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);">
+                    <div class="card-body p-4">
+                        <i class="fas fa-quote-left fa-2x mb-3 text-primary"></i>
+                        <p class="card-text text-white-50">An unforgettable experience. The attention to detail and service was impeccable. The staff went above and beyond to make our stay memorable.</p>
+                        <div class="testimonial-author mt-4">
+                            <div class="d-flex align-items-center">
+                                <img src="/images/guest1.jpg" alt="John Doe" class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="text-white mb-1">Thabang Mohale</h6>
+                                    <p class="text-white-50 mb-0">Ha Thetsane, MSU</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="card rounded-3 border-0" style="background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);">
+                    <div class="card-body p-4">
+                        <i class="fas fa-quote-left fa-2x mb-3 text-primary"></i>
+                        <p class="card-text text-white-50">The Royal Suite exceeded all expectations. The panoramic views, luxurious amenities, and world-class dining made our honeymoon perfect.</p>
+                        <div class="testimonial-author mt-4">
+                            <div class="d-flex align-items-center">
+                                <img src="/images/guest2.jpg" alt="Sarah Johnson" class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="text-white mb-1">Sebabatso Moshoeshoe</h6>
+                                    <p class="text-white-50 mb-0">Maseru-west, MSU</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="card rounded-3 border-0" style="background: linear-gradient(135deg, #3182ce 0%, #4299e1 100%);">
+                    <div class="card-body p-4">
+                        <i class="fas fa-quote-left fa-2x mb-3 text-primary"></i>
+                        <p class="card-text text-white-50">The spa treatments were divine and the restaurant's culinary offerings were exceptional. A truly five-star experience from start to finish.</p>
+                        <div class="testimonial-author mt-4">
+                            <div class="d-flex align-items-center">
+                                <img src="/images/guest3.jpg" alt="Michael Chen" class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="text-white mb-1">Chabeli Chabeli</h6>
+                                    <p class="text-white-50 mb-0">Khubetsoana ,BRE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this button after the testimonials and before the form -->
+<div class="text-center mb-5">
+    <button class="btn btn-outline-primary" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#testimonialFormSection" 
+            aria-expanded="false" 
+            aria-controls="testimonialFormSection">
+        <span class="share-experience-text">Share Your Experience</span>
+        <span class="hide-form-text d-none">Hide Form</span>
+        <i class="fas fa-chevron-down ms-2 toggle-icon"></i>
+    </button>
+</div>
+
+<!-- Wrap the form section in a collapse div -->
+<div class="collapse" id="testimonialFormSection">
+    <div class="testimonial-form-section">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card bg-dark text-white">
+                    <div class="card-body p-4">
+                        <h4 class="text-center mb-4">Share Your Experience</h4>
+                        <form id="testimonialForm" class="testimonial-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-muted">Full Name</label>
+                                        <input type="text" class="form-control dark-input" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-muted">Email Address</label>
+                                        <input type="email" class="form-control dark-input" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-muted">Phone Number</label>
+                                        <input type="tel" class="form-control dark-input">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-muted">Room Type</label>
+                                        <select class="form-select dark-input">
+                                            <option value="">Select Room Type</option>
+                                            <option value="presidential">Presidential Suite</option>
+                                            <option value="royal">Royal Suite</option>
+                                            <option value="executive">Executive Suite</option>
+                                            <option value="deluxe">Deluxe Room</option>
+                                            <option value="ocean">Ocean View Suite</option>
+                                            <option value="family">Family Suite</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label text-muted">Your Message</label>
+                                        <textarea class="form-control dark-input" rows="4" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="consentCheck" required>
+                                        <label class="form-check-label text-muted" for="consentCheck">
+                                            I consent to having my testimonial displayed on the website
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary px-5">
+                                        <i class="fas fa-paper-plane me-2"></i>Submit Testimonial
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Facilities Section -->
+<section class="facilities-section py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase">Facilities</h6>
+            <h1 class="display-4 text-white">Leisure & Services</h1>
+            <p class="text-muted">Enjoy our range of amenities and services</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="facility-item text-white">
+                    <i class="fas fa-wifi fa-3x mb-3"></i>
+                    <h4>Free WiFi</h4>
+                    <p class="text-muted">Stay connected throughout your stay</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="facility-item text-white">
+                    <i class="fas fa-parking fa-3x mb-3"></i>
+                    <h4>Free Parking</h4>
+                    <p class="text-muted">Secure on-site private parking</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="facility-item text-white">
+                    <i class="fas fa-bicycle fa-3x mb-3"></i>
+                    <h4>Bicycle Parking</h4>
+                    <p class="text-muted">Secure storage for your bikes</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="facility-item text-white">
+                    <i class="fas fa-fire fa-3x mb-3"></i>
+                    <h4>Barbecue Facilities</h4>
+                    <p class="text-muted">Enjoy outdoor cooking</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="facility-item text-white">
+                    <i class="fas fa-coffee fa-3x mb-3"></i>
+                    <h4>Coffee Shop</h4>
+                    <p class="text-muted">Relax with a hot beverage</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="facility-item text-white">
+                    <i class="fas fa-shuttle-van fa-3x mb-3"></i>
+                    <h4>Shuttle Service</h4>
+                    <p class="text-muted">Paid airport transfers available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location Section -->
+<section class="location-section py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase">Location</h6>
+            <h1 class="display-4 text-white">Getting Here</h1>
+            <p class="text-muted">Conveniently located in Mapholaneng</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 text-white">
+                <h4>Location Details</h4>
+                <p class="text-muted">Located 166 miles from Moshoeshoe International Airport, Highlands Lodge offers:</p>
+                <ul class="list-unstyled text-muted">
+                    <li><i class="fas fa-star me-2"></i>Private check-in and check-out</li>
+                    <li><i class="fas fa-star me-2"></i>Paid shuttle service</li>
+                    <li><i class="fas fa-star me-2"></i>Full-day security</li>
+                    <li><i class="fas fa-star me-2"></i>Attentive staff service</li>
+                </ul>
+                <div class="nearby-attractions mt-4">
+                    <h5 class="text-white">Nearby Attractions:</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-shopping-cart me-2"></i>5min Drive from Shopping Centre</li>
+                        <li class="mb-2"><i class="fas fa-skiing me-2"></i>Plus-minus 30min drive from Afriski</li>
+                        <li class="mb-2"><i class="fas fa-gem me-2"></i>15min Drive from Commercial Diamond Mines</li>
+                        <li class="mb-2"><i class="fas fa-beer me-2"></i>1hr & 15min from Sani Pass (the highest pub in Africa)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="map-container rounded overflow-hidden shadow-lg">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.123456789012!2d28.123456!3d-29.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDA3JzI0LjQiUyAyOMKwMDcnMjQuNCJF!5e0!3m2!1sen!2sls!4v1234567890!5m2!1sen!2sls" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h5 class="mb-4">Highlands Lodge</h5>
+                <p>Established in 2021, Highlands Lodge is committed to providing excellent customer service in the heart of Mapholaneng, Mokhotlong.</p>
+                <div class="social-links mt-4">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h5 class="mb-4">Contact Us</h5>
+                <p><i class="fas fa-map-marker-alt me-2"></i> Mapholaneng Ha Moupu, Mokhotlong</p>
+                <p><i class="fas fa-phone me-2"></i> +266 50224133</p>
+                <p><i class="fas fa-envelope me-2"></i> melom@highlandslodge.co.ls</p>
+                <p><i class="fas fa-envelope me-2"></i> aba@highlandslodge.co.ls</p>
+                <p><i class="fas fa-envelope me-2"></i> tlalinapo@highlandslodge.co.ls</p>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="mb-4">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#rooms" class="text-white text-decoration-none">Rooms</a></li>
+                    <li class="mb-2"><a href="#dining" class="text-white text-decoration-none">Dining</a></li>
+                    <li class="mb-2"><a href="#Services" class="text-white text-decoration-none">Services</a></li>
+                    <li class="mb-2"><a href="#book" class="text-white text-decoration-none">Book Now</a></li>
+                </ul>
+            </div>
+                        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2024 Highlands Lodge. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">Est: 2021</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/26652224133" class="whatsapp-fab" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html> 
